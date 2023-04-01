@@ -1,0 +1,20 @@
+class CommentsController < ApplicationController
+  def create
+    @project = Project.find(params[:comment][:project_id])
+    @comment = @project.comments.create(comment_params)
+    redirect_to @project
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @project = @comment.project
+    @comment.destroy
+
+    redirect_to @project
+  end
+
+  private
+    def comment_params
+      params.require(:comment).permit(:content, :project_id)
+    end
+end

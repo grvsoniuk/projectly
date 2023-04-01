@@ -1,0 +1,17 @@
+<div id="<%= dom_id project %>" class="card border-success mb-3 <%= get_show_width(action_name)%>">
+  <div class="card-header bg-transparent border-success">
+    <span class="badge rounded-pill bg-<%= background_color_for_status(project.status)%> text-dark"><%= project.status %></span>
+  </div>
+  <div class="card-body text-success">
+    <h5 class="card-title"><%= project.title %></h5>
+    <p class="card-text"><%= project.desc %></p>
+  </div>
+  <div class="card-footer bg-transparent border-success">
+    <% if action_name == "index" %>
+      <%= link_to "View", project, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Edit this project", edit_project_path(project), class: "btn btn-primary btn-sm float-start" %>
+      <%= button_to "Destroy this project", project, method: :delete, class: "btn btn-danger btn-sm float-end"%>
+    <% end %>
+  </div>
+</div>

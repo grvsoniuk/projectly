@@ -1,0 +1,17 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<%= render @project %>
+
+<%= render "comments/form", comment: @comment %>
+
+<ul class="list-group pb-3">
+<%= render @project.comments %>
+</ul>
+
+<div>
+  <%= link_to "Back to projects", projects_path %>
+</div>

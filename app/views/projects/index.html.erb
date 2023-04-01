@@ -1,0 +1,12 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<div id="projects">
+  <% @projects.each do |project| %>
+    <%= render project %>
+  <% end %>
+</div>
+
