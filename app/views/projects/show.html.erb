@@ -8,9 +8,22 @@
 
 <%= render "comments/form", comment: @comment %>
 
-<ul class="list-group pb-3">
-<%= render @project.comments %>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-comment-tab" data-bs-toggle="pill" data-bs-target="#pills-comment" type="button" role="tab" aria-controls="pills-comment" aria-selected="true">Comments</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-history-tab" data-bs-toggle="pill" data-bs-target="#pills-history" type="button" role="tab" aria-controls="pills-history" aria-selected="false">History</button>
+  </li>
 </ul>
+<div class="tab-content pb-5" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
+    <ul class="list-group pb-3">
+      <%= render @project.comments.order("created_at DESC") %>
+    </ul>
+  </div>
+  <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab"><%= render "audits", audits: get_audits_by_project(@project) %></div>
+</div>
 
 <div>
   <%= link_to "Back to projects", projects_path %>
