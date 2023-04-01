@@ -1,17 +1,20 @@
-<div id="<%= dom_id project %>" class="card border-success mb-3 <%= get_show_width(action_name)%>">
-  <div class="card-header bg-transparent border-success">
-    <span class="badge rounded-pill bg-<%= background_color_for_status(project.status)%> text-dark"><%= project.status %></span>
-  </div>
-  <div class="card-body text-success">
-    <h5 class="card-title"><%= project.title %></h5>
-    <p class="card-text"><%= project.desc %></p>
-  </div>
-  <div class="card-footer bg-transparent border-success">
-    <% if action_name == "index" %>
-      <%= link_to "View", project, class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Edit this project", edit_project_path(project), class: "btn btn-primary btn-sm float-start" %>
-      <%= button_to "Destroy this project", project, method: :delete, class: "btn btn-danger btn-sm float-end"%>
-    <% end %>
+<div id="<%= dom_id project %>" class="col <%= get_show_width(action_name)%>">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <span class="badge bg-<%= background_color_for_status(project.status) %> rounded-pill float-end"><%= project.status %></span>
+      <h5><%= project.title %></h5>
+      <p class="card-text clearfix"><%= project.desc %></p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <% if action_name == "index" %>
+            <%= link_to "View", project, class: "btn btn-primary" %>
+          <% else %>
+            <%= button_to "Edit", edit_project_path(project), class: "btn btn-sm btn-outline-primary" %>
+            <%= button_to "Destroy", project, method: :delete, class: "btn btn-sm btn-outline-danger"%>
+          <% end %>
+        </div>
+        <small class="text-muted">Created <%= time_ago_in_words(project.created_at) %> ago</small>
+      </div>
+    </div>
   </div>
 </div>
