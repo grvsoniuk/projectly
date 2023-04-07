@@ -1,20 +1,17 @@
-<div id="<%= dom_id project %>" class="col <%= get_show_width(action_name)%>">
-  <div class="card shadow-sm">
-    <div class="card-body">
-      <span class="badge bg-<%= background_color_for_status(project.status) %> rounded-pill float-end"><%= project.status %></span>
-      <h5><%= project.title %></h5>
-      <p class="card-text clearfix"><%= project.desc %></p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <% if action_name == "index" %>
-            <%= link_to "View", project, class: "btn btn-primary" %>
-          <% else %>
-            <%= link_to "Edit", edit_project_path(project), class: "btn btn-sm btn-outline-primary" %>
-            <%= button_to "Destroy", project, method: :delete, class: "btn btn-sm btn-outline-danger"%>
-          <% end %>
-        </div>
-        <small class="text-muted">Created <%= time_ago_in_words(project.created_at) %> ago</small>
-      </div>
-    </div>
+<div class="card" id="<%= dom_id project %>">
+  <h5 class="card-header">
+    <span class="badge bg-<%= background_color_for_status(project.status) %> rounded-pill"><%= project.status %></span>
+    <span class="float-end"><small class="text-muted">Created <%= time_ago_in_words(project.created_at) %> ago</small></span>
+  </h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= project.title %></h5>
+    <p class="card-text"><%= project.desc %></p>
+    <% if action_name == "index" %>
+      <%= link_to "View", project, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Edit", edit_project_path(project), class: "btn btn-sm btn-outline-primary float-start m-1" %>
+      <%= button_to "Destroy", project, method: :delete, class: "btn btn-sm btn-outline-danger m-1"%>
+    <% end %>
   </div>
 </div>
+<br/>
