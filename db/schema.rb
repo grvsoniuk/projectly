@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_01_151954) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_09_081849) do
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
     t.string "auditable_type"
@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_01_151954) do
     t.integer "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["project_id"], name: "index_comments_on_project_id"
   end
 
@@ -47,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_01_151954) do
     t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,6 +56,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_01_151954) do
     t.string "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "fullname"
+    t.string "uid"
+    t.string "avatar_url"
+    t.string "provider"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "comments", "projects"

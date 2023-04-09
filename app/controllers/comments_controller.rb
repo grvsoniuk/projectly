@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @project = Project.find(params[:comment][:project_id])
-    @comment = @project.comments.create(comment_params)
+    @comment = @project.comments.create(comment_params.merge(user_id: current_user.id))
     redirect_to @project
   end
 
