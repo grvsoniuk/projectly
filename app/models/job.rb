@@ -3,7 +3,7 @@ class Job < ApplicationRecord
 
     has_many :comments, dependent: :destroy
     belongs_to :user
-    validates_presence_of :title
+    validates_presence_of :company
     validates_presence_of :status, :default => "New"
 
     COLOR_CODE = {  "Applied" => "warning",

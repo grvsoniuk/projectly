@@ -1,11 +1,12 @@
 <div class="card" id="<%= dom_id job %>">
   <h5 class="card-header">
-    <span class="badge bg-<%= background_color_for_status(job.status) %> rounded-pill"><%= job.status %></span>
+    <%= job.company %> <span class="badge bg-<%= background_color_for_status(job.status) %> rounded-pill"><%= job.status %></span>
     <span class="float-end"><small class="text-muted">Created <%= time_ago_in_words(job.created_at) %> ago</small></span>
   </h5>
   <div class="card-body">
-    <h5 class="card-title"><%= job.company %></h5>
-    <p class="card-text"><%= job.desc %></p>
+    <p><%= job.role %> | <b><%= job.technology %></b> | <%= job.recruiter %> </p>
+    <p><b>Next Meetup: </b><%=job.next_meetup_before_type_cast %></p>
+    <div class="card-text"><%= sanitize job.desc if action_name=="show" %></div>
     <% if action_name == "index" %>
       <%= link_to "View", job, class: "btn btn-sm btn-primary" %>
     <% else %>

@@ -12,8 +12,24 @@
   <% end %>
   <%= form.hidden_field :user_id, value: current_user.id  %>
   <div class="mb-3">
-    <%= form.label :title, class: "form-label" %>
-    <%= form.text_field :title, class: "form-control" %>
+    <%= form.label :company, class: "form-label" %>
+    <%= form.text_field :company, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :role, class: "form-label" %>
+    <%= form.text_field :role, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :recruiter, class: "form-label" %>
+    <%= form.text_field :recruiter, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :technology, class: "form-label" %>
+    <%= form.text_field :technology, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :next_meetup, class: "form-label" %>
+    <%= form.datetime_field :next_meetup, class: "form-control" %>
   </div>
   <div class="mb-3">
     <%= form.label :status, class: "form-label" %>
@@ -21,10 +37,18 @@
   </div>
   <div class="mb-3">
     <%= form.label :desc, class: "form-label" %>
-    <%= form.text_area :desc, class: "form-control" %>
+    <%= form.text_area :desc, class: "form-control job_desc_text" %>
   </div>
 
   <div>
     <%= form.submit class: "btn btn-sm btn-primary" %>
   </div>
 <% end %>
+
+<script src="https://cdn.tiny.cloud/1/uzi82zeigdjhcqqibcrp927r17lgieen8xjnzx78ey5vgxt6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap'
+    });
+</script>
