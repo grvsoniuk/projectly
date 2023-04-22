@@ -43,3 +43,4 @@
 /db/schema.rb
 
 /config/credentials/production.key
+/.idea/

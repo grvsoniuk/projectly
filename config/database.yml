@@ -5,14 +5,18 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: projectly_development
+  username: root
+  password: changeme
+  port: 3306
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -20,7 +24,13 @@ development:
 test:
   <<: *default
   database: projectly_test
+  username: root
+  password: changeme
+  port: 3306
 
 production:
   <<: *default
   database: projectly_production
+  username: root
+  password: changeme
+  port: 3306

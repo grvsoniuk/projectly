@@ -11,10 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_04_09_081849) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "audits", force: :cascade do |t|
+  create_table "audits", charset: "utf8mb3", force: :cascade do |t|
     t.integer "auditable_id"
     t.string "auditable_type"
     t.integer "associated_id"
@@ -36,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_081849) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", charset: "utf8mb3", force: :cascade do |t|
     t.text "content"
     t.bigint "project_id", null: false
     t.datetime "created_at", null: false
@@ -45,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_081849) do
     t.index ["project_id"], name: "index_comments_on_project_id"
   end
 
-  create_table "projects", force: :cascade do |t|
+  create_table "projects", charset: "utf8mb3", force: :cascade do |t|
     t.string "title"
     t.string "status"
     t.text "desc"
@@ -54,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_081849) do
     t.integer "user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "username"
     t.string "user_type"
     t.datetime "created_at", null: false
