@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Projectly</title>
+    <title>Jobly</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "main" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <style>
       .GoogleOauth2{
@@ -21,7 +22,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Projectly</a>
+        <a class="navbar-brand" href="/">Jobly</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,7 +30,7 @@
           <ul class="navbar-nav">
             <% if current_user.present? %>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/projects">Projects</a>
+                <a class="nav-link active" aria-current="page" href="/jobs">Jobs</a>
               </li>
             <% end %>
           </ul>
@@ -39,15 +40,29 @@
             <% if current_user.present? && current_user.avatar_url.present? %>
               <%= link_to image_tag(current_user.avatar_url, size: "30"), edit_user_registration_path %> <%= current_user.fullname %>
             <% end %>
-            <a href="/projects/new" class="btn btn-success">New Project</a>
+            <a href="/jobs/new" class="btn btn-sm btn-success">New Job</a>
           </div>
-          <%= button_to "Logout", destroy_user_session_path, data: { turbo: false }, method: :delete, class: "btn btn-danger ms-2"  %>
+          <%= button_to "Logout", destroy_user_session_path, data: { turbo: false }, method: :delete, class: "btn btn-sm btn-danger ms-2"  %>
         <% end %>
       </div>
     </nav>
     <div class="container p-2 pt-3" >
       <%= yield %>
     </div>
+    <script src="https://cdn.tiny.cloud/1/uzi82zeigdjhcqqibcrp927r17lgieen8xjnzx78ey5vgxt6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ]
+        });
+    </script>
   </body>
 </html>

@@ -1,10 +1,10 @@
 <% unless current_user %>
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Welcome to Projectly</h1>
-      <p class="col-md-8 fs-4">Create, maintain, discuss your projects and improve them along with your team.</p>
-      <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary btn-lg" %>
-      <%= link_to "Register", new_user_registration_path, class: "btn btn-warning btn-lg" %>
+      <h1 class="display-5 fw-bold">Welcome to Jobly</h1>
+      <p class="col-md-8 fs-4">Create, maintain, discuss your jobs and improve them along with your team.</p>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-sm btn-primary btn-lg" %>
+      <%= link_to "Register", new_user_registration_path, class: "btn btn-sm btn-warning btn-lg" %>
     </div>
   </div>
 <% end %>

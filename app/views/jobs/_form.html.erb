@@ -1,10 +1,10 @@
-<%= form_with(model: project) do |form| %>
-  <% if project.errors.any? %>
+<%= form_with(model: job) do |form| %>
+  <% if job.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
 
       <ul>
-        <% project.errors.each do |error| %>
+        <% job.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -17,7 +17,7 @@
   </div>
   <div class="mb-3">
     <%= form.label :status, class: "form-label" %>
-    <%= form.select(:status, Project::COLOR_CODE.keys, {},{class: "form-select"}) %>
+    <%= form.select(:status, Job::COLOR_CODE.keys, {},{class: "form-select"}) %>
   </div>
   <div class="mb-3">
     <%= form.label :desc, class: "form-label" %>
@@ -25,6 +25,6 @@
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-primary" %>
+    <%= form.submit class: "btn btn-sm btn-primary" %>
   </div>
 <% end %>

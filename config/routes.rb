@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'jobs#index'
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions",
@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :comments
-  resources :projects
-  resources :projects do
+  resources :jobs
+  resources :jobs do
     resources :comments
   end
 end

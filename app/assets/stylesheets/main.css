@@ -1,0 +1,15 @@
+body {
+    font-size: 0.75rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.small {
+    font-size: 0.75rem;
+}
+
+span {
+    font-size: 0.75rem !important;
+}

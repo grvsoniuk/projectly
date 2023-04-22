@@ -5,7 +5,7 @@
         <div class="fw-bold"><%= audit.auditable_type %> : <%= audit.action %></div>
         <%= audit.audited_changes.to_s %>
       </div>
-      at&nbsp;<span class="badge bg-primary rounded-pill">at <%= audit.created_at %></span>&nbsp;by&nbsp;<span class="badge bg-secondary rounded-pill"><i><%= User.find(audit.user_id).username %></i></span>
+      at&nbsp;<span class="badge bg-primary rounded-pill">at <%= audit.created_at %></span>&nbsp;by&nbsp;<span class="badge bg-secondary rounded-pill"><i><%= User.find(audit.user_id).email %></i></span>
     </li>
   <% end %>
 </ol>

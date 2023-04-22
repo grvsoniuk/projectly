@@ -4,7 +4,7 @@
   </div>
 <% end %>
 
-<%= render @project %>
+<%= render @job %>
 
 <%= render "comments/form", comment: @comment %>
 
@@ -19,12 +19,12 @@
 <div class="tab-content pb-5" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
     <ul class="list-group pb-3">
-      <%= render @project.comments.order("created_at DESC") %>
+      <%= render @job.comments.order("created_at DESC") %>
     </ul>
   </div>
-  <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab"><%= render "audits", audits: get_audits_by_project(@project) %></div>
+  <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab"><%= render "audits", audits: get_audits_by_job(@job) %></div>
 </div>
 
 <div>
-  <%= link_to "Back to projects", projects_path %>
+  <%= link_to "Back to jobs", jobs_path %>
 </div>
