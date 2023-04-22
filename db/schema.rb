@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_04_22_144340) do
-  create_table "audits", charset: "utf8mb3", force: :cascade do |t|
+  create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
     t.string "auditable_type"
     t.integer "associated_id"
@@ -33,16 +33,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_22_144340) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
-  create_table "comments", charset: "utf8mb3", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.bigint "job_id", null: false
+    t.integer "job_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["job_id"], name: "index_comments_on_job_id"
   end
 
-  create_table "jobs", charset: "utf8mb3", force: :cascade do |t|
+  create_table "jobs", force: :cascade do |t|
     t.string "company"
     t.string "status"
     t.text "desc"
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_22_144340) do
     t.datetime "next_meetup"
   end
 
-  create_table "users", charset: "utf8mb3", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "user_type"
     t.datetime "created_at", null: false
