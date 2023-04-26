@@ -4,6 +4,6 @@
     <%= job.recruiter %>
   </td>
   <td><span class="badge bg-<%= background_color_for_status(job.status) %> rounded-pill"><%= job.status %></span></td>
-  <td><%= job.role %><br/><%= job.technology %></td>
+  <td><b><%= job.role %></b><br/><i><%= job.technology %></i></td>
   <td><%= job.next_meetup.try(:to_formatted_s, :long) %></td>
 </tr>
