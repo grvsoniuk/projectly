@@ -9,7 +9,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "main" %>
     <link href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/fc-4.2.2/fh-3.3.2/r-2.4.1/sb-1.4.2/sp-2.1.2/datatables.min.css" rel="stylesheet"/>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <%= javascript_include_tag "application"%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/fc-4.2.2/fh-3.3.2/r-2.4.1/sb-1.4.2/sp-2.1.2/datatables.min.js"></script>
     <style>
       .GoogleOauth2{
           background: url(../assets/btn_google_signin_dark_focus_web.png) no-repeat;
@@ -50,8 +54,5 @@
     <div class="container p-2 pt-3" >
       <%= yield %>
     </div>
-    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/fc-4.2.2/fh-3.3.2/r-2.4.1/sb-1.4.2/sp-2.1.2/datatables.min.js"></script>
-
   </body>
 </html>

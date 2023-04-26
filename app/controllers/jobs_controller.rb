@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   # GET /jobs or /jobs.json
   def index
-    @jobs = Job.where(user_id: current_user.id).order(:updated_at)
+    @jobs = Job.where(user_id: current_user.id).order(:updated_at, :desc)
   end
 
   # GET /jobs/1 or /jobs/1.json
