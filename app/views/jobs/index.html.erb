@@ -4,7 +4,35 @@
   </div>
 <% end %>
 
-<% @jobs.each do |job| %>
-  <%= render job %>
-<% end %>
+<table id="example" class="table table-striped" style="width:100% !important">
+  <thead>
+  <tr>
+    <th>Company & Recruiter</th>
+    <th>Stage</th>
+    <th>Role & Technologies</th>
+    <th>Next Meetup</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <%= render "job_rows", :job => job %>
+    <% end %>
+  </tbody>
+  <tfoot>
+  <tr>
+    <th>Company & Recruiter</th>
+    <th>Stage</th>
+    <th>Role & Technologies</th>
+    <th>Next Meetup</th>
+  </tr>
+  </tfoot>
+</table>
 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
