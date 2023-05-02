@@ -8,7 +8,7 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
-
+    - sudo apt-get install imagemagick --fix-missing
 * Configuration
 
 * Database creation
