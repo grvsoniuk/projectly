@@ -37,30 +37,10 @@
   </div>
   <div class="mb-3">
     <%= form.label :desc, class: "form-label" %>
-    <%= form.text_area :desc, class: "form-control job_desc_text tinymce" %>
+    <%= form.rich_text_area :desc, class: "form-control job_desc_text tinymce" %>
   </div>
 
   <div>
     <%= form.submit class: "btn btn-sm btn-primary" %>
   </div>
 <% end %>
-
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script type="text/javascript">
-    $(document).ready(function (){
-        tinymce.init({
-            selector: '.tinymce',
-            height: 500,
-            menubar: false,
-            plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount'
-            ],
-            toolbar: 'undo redo | formatselect | ' +
-                ' bold italic backcolor | alignleft aligncenter ' +
-                ' alignright alignjustify | bullist numlist outdent indent | ' +
-                ' removeformat | help'
-        });
-    });
-</script>

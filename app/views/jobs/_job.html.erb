@@ -6,7 +6,7 @@
   <div class="card-body">
     <p><%= job.role %> | <b><%= job.technology %></b> | <%= job.recruiter %> </p>
     <p><b>Next Meetup: </b><%=job.next_meetup_before_type_cast %></p>
-    <div class="card-text"><%= sanitize job.desc if action_name=="show" %></div>
+    <div class="card-text"><%= job.desc if action_name=="show" %></div>
     <% if action_name == "index" %>
       <%= link_to "View", job, class: "btn btn-sm btn-primary" %>
     <% else %>

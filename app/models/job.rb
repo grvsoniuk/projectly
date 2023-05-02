@@ -5,6 +5,7 @@ class Job < ApplicationRecord
     belongs_to :user
     validates_presence_of :company
     validates_presence_of :status, :default => "New"
+    has_rich_text :desc
 
     COLOR_CODE = {  "Applied" => "warning",
                     "Recruiter" => "danger",
