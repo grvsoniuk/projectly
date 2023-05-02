@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   # GET /jobs or /jobs.json
   def index
-    @jobs = Job.where(user_id: current_user.id).order(:updated_at, :desc)
+    @jobs = Job.where(user_id: current_user.id).where.not(status: "Archived").order(:updated_at, :desc)
   end
 
   # GET /jobs/1 or /jobs/1.json
@@ -52,7 +52,8 @@ class JobsController < ApplicationController
 
   # DELETE /jobs/1 or /jobs/1.json
   def destroy
-    @job.destroy
+    @job.status = "Archived"
+    @job.save!
 
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: "Job was successfully destroyed." }

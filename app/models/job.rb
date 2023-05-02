@@ -8,6 +8,7 @@ class Job < ApplicationRecord
     has_rich_text :desc
 
     COLOR_CODE = {  "Applied" => "warning",
+                    "Archived" => "dummy",
                     "Recruiter" => "danger",
                     "In Process" => "info",
                     "Offered" => "success",
