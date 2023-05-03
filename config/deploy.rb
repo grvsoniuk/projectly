@@ -6,7 +6,7 @@ set :default_env, { rvm_bin_path: "~/.rvm/bin" }
 
 set :application, "projectly"
 set :repo_url, "git@github.com:grvsoniuk/projectly.git"
-set :branch, 'version-2'
+set :branch, 'main'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
