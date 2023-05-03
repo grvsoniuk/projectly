@@ -5,6 +5,7 @@
   </h5>
   <div class="card-body">
     <p><%= job.role %> | <b><%= job.technology %></b> | <%= job.recruiter %> </p>
+    <p><b>Link to Job: </b><%= link_to job.job_link, job.job_link, target: "_blank" %></p>
     <p><b>Next Meetup: </b><%=job.next_meetup_before_type_cast %></p>
     <div class="card-text"><%= job.desc if action_name=="show" %></div>
     <% if action_name == "index" %>
