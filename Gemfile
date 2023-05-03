@@ -55,6 +55,7 @@ gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 gem "ed25519"
 gem "bcrypt_pbkdf"
+gem "aws-sdk-s3"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
