@@ -8,6 +8,7 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
+    - gem install pg -- --with-pg-config=/usr/local/opt/libpq/bin/pg_config
     - sudo apt-get install imagemagick --fix-missing
 * Configuration
 

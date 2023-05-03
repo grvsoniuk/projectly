@@ -53,6 +53,8 @@ gem "devise"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
+gem "ed25519"
+gem "bcrypt_pbkdf"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -74,6 +76,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "capistrano"
+  gem "capistrano-rails"
+  gem "capistrano-secrets-yml"
+  gem "capistrano-rvm"
 end
 
 group :test do
