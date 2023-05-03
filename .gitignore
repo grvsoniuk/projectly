@@ -46,3 +46,4 @@
 /.idea/
 nohup.out
 config/credentials.yml.enc
+config/secrets.yml
