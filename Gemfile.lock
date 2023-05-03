@@ -300,6 +300,7 @@ DEPENDENCIES
   bcrypt_pbkdf
   bootsnap
   capistrano
+  capistrano-bundler
   capistrano-rails
   capistrano-rvm
   capistrano-secrets-yml

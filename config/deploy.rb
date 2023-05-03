@@ -29,6 +29,7 @@ append :linked_files,  'config/credentials/production.key', "config/master.key",
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"
+append :linked_dirs, '.bundle'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -43,3 +44,17 @@ append :linked_files,  'config/credentials/production.key', "config/master.key",
 # set :ssh_options, verify_host_key: :secure
 
 after  'deploy:log_revision', 'deploy:assets:precompile'
+
+
+namespace :deploy do
+    # Restart the server.
+    desc 'Restart application'
+    task :restart do
+        on roles(:app), in: :sequence, wait: 5 do
+        execute :touch, release_path.join('tmp/restart.txt')
+        end
+    end
+
+    # Trigger the task.
+    after 'deploy:publishing', 'deploy:restart'
+end

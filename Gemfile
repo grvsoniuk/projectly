@@ -80,6 +80,7 @@ group :development do
   gem "capistrano-rails"
   gem "capistrano-secrets-yml"
   gem "capistrano-rvm"
+  gem 'capistrano-bundler'
 end
 
 group :test do
