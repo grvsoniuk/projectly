@@ -9,8 +9,10 @@
   <tr>
     <th>Company & Recruiter</th>
     <th>Stage</th>
-    <th>Role & Technologies</th>
+    <th class="none">Role</th>
+    <th class="none">Technologies</th>
     <th>Next Meetup</th>
+    <th>Applied On</th>
   </tr>
   </thead>
   <tbody>
@@ -18,20 +20,13 @@
       <%= render "job_rows", :job => job %>
     <% end %>
   </tbody>
-  <tfoot>
-  <tr>
-    <th>Company & Recruiter</th>
-    <th>Stage</th>
-    <th>Role & Technologies</th>
-    <th>Next Meetup</th>
-  </tr>
-  </tfoot>
 </table>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#example').DataTable({
-          "order": []
+        var table = $('#example').DataTable({
+          'responsive': true,
+          'order': []
         });
     });
 </script>
