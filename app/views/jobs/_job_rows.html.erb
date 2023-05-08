@@ -1,10 +1,10 @@
 <tr>
   <td>
     <%= link_to job.company, job, class: "btn btn-sm btn-primary" %><br/>
-    <%= job.recruiter %>
+    <%= job.role %>
   </td>
   <td><span class="badge bg-<%= background_color_for_status(job.status) %> rounded-pill"><%= job.status %></span></td>
-  <td><%= job.role %></td>
+  <td><%= job.recruiter %></td>
   <td><%= job.technology %></td>
   <td><%= job.next_meetup.try(:to_formatted_s, :long) %></td>
   <td><%= job.created_at.try(:to_formatted_s, :long) %></td>
